@@ -1,0 +1,9 @@
+    .rv-tabbar{
+        background-color: #FEFFFF ;
+    }
+    .content-container {
+        /* 确保内容区域占据页面大部分空间 */
+        height: calc(100vh - 50px);
+        /* 根据你的 Tabbar 高度进行调整 */
+        overflow-y: auto;
+    }

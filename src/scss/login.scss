@@ -1,0 +1,69 @@
+.login {
+    background-color: #fff;
+    height: 100vh;
+
+    .login-body {
+        margin-top: 60px;
+
+        .login-title {
+            margin-left: 28px;
+        }
+
+        .login-form {
+            padding: 50px 25px 20px;
+        }
+
+        .form-item {
+            padding: 10px 0;
+        }
+
+        .send-btn {
+            border: none;
+        }
+
+        .login-btn {
+            margin-top: 25px;
+            background: #FCCB30;
+        }
+    }
+
+    .go-register {
+        text-align: center;
+        font-size: 10px;
+        color: #666262;
+
+        span {
+            font-size: 14px;
+            margin-right: 11px;
+        }
+    }
+
+    .other-login {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+
+        .other-login-title {
+            text-align: center;
+            font-size: 13px;
+            color: #999393;
+            margin: 30px 0 20px;
+        }
+
+        .other-login-icon-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .other-login-icon {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                height: 50px;
+                margin: 0 37.5px;
+            }
+        }
+    }
+}

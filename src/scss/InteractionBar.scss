@@ -1,0 +1,87 @@
+.bar {
+    padding: 0 var(--rv-padding-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .commentAbouts {
+        width: 117px;
+        display: flex;
+        align-items: center;
+
+        /* 容器样式，使用Flex布局 */
+        .container {
+            display: flex;
+            width: 52px;
+        }
+
+        /* 三个div通用样式 */
+        .div1,
+        .div2,
+        .div3 {
+            width: 22px;
+            height: 22px;
+            text-align: center;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+
+        /* 第二个div样式，与第一个div重合一部分 */
+        .div2 {
+            margin-left: -7px;
+        }
+
+        /* 第三个div样式 */
+        .div3 {
+            margin-left: -7px;
+        }
+
+        .commentAboutsText {
+            font-size: 12px;
+            color: #999999;
+            margin-left: 5px;
+        }
+    }
+
+    .action-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            width: 18px;
+            height: 18px;
+            border: none;
+            background: none;
+
+            .icon {
+                width: 18px;
+                height: 18px;
+
+                path {
+                    fill: #999999;
+                }
+            }
+
+            
+        }
+        .active {
+            .icon {
+                path {
+                    fill: rgb(203, 34, 34);
+                }
+            }
+        }
+
+        span {
+            padding: 2px 8px;
+            font-size: 12px;
+            color: #999999;
+        }
+    }
+}

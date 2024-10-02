@@ -1,0 +1,42 @@
+.dropmenu {
+    .dropmenuTop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 7.5px;
+        width: 360px;
+
+        .rv-field{
+            width: 200px;
+        }
+    }
+
+    .searchResTitle {
+        margin: 0 16px;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            border: none;
+            background: none;
+            color: #b8b8b8;
+            font-size: 14px;
+        }
+    }
+
+    .recommend {
+        margin: 20px 13.5px 20px 18.5px;
+
+        .recommendCityBtns {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+
+            .recommendedSelectbtn {
+                width: 80px;
+                border-color: #fccb30;
+            }
+        }
+    }
+}

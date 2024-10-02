@@ -1,0 +1,19 @@
+.about{
+    .rv-search{
+        padding: 10px var(--rv-padding-md);
+
+        button{
+            background: none;
+            border: none;
+            width: 34px;
+            height: 34px;
+            margin-left: 5px;
+
+            .icon{
+                width: 24px;
+                height: 24px;
+                padding: 5px;
+            }
+        }
+    }
+}

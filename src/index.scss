@@ -1,0 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --rv-nav-bar-height: 44px;
+  --rv-nav-bar-background-color: rgba(0,0,0,0);
+  --rv-nav-bar-icon-color: var(--rv-black);
+  --rv-nav-bar-text-color: var(--rv-black);
+  --rv-padding-md: 15px;
+}
+.rv-hairline--bottom::after {
+border: none;
+}

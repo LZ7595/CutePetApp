@@ -1,0 +1,37 @@
+$text-above-image: true;
+
+.user-tab {
+    .rv-cell__left-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .rv-cell__title {
+        font-size: 15px;
+    }
+
+    .rv-button {
+        width: 60px;
+        height: 28px;
+        font-size: 12px;
+        color: #FCCB30;
+        border: #FCCB30 solid 1px;
+        margin-right: 6px;
+    }
+
+}
+
+.user-content {
+    display: flex;
+    flex-direction: column;
+
+    &.text-below-image {
+        flex-direction: column-reverse;
+    }
+
+    .user-content-text {
+        padding: 7px var(--rv-padding-md);
+        font-family: PingFang SC-Regular;
+        letter-spacing: 0.5px;
+    }
+}
