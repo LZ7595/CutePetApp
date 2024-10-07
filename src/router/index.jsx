@@ -7,11 +7,14 @@ import Login from "@/pages/login";
 import Register from "@/pages/register";
 import Foster from "@/pages/foster";
 import FosterIndex from "@/pages/foster/fosterIndex";
+import StoreDetails from "@/pages/foster/storeDetails";
+import Reservation from "@/pages/mix/reservation";
+import AddAnimal from "@/pages/mix/addAnimal";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Navigate to="/home" replace/>,
+        element: <Navigate to="/home" replace />,
     },
     {
         path: "home",
@@ -40,21 +43,14 @@ const router = createBrowserRouter([
                 element: <FosterIndex />,
             },
             {
-                path: "storeDetails",
-                element: <h1>寄养店详情</h1>,
+                path: "storeDetails/:storeId",
+                element: <StoreDetails />,
             },
             {
-                path: "addAnimal",
-                element: <h1>添加宠物</h1>,
+                path: "reservation/:storeId",
+                element: <Reservation serviceType="foster" />,
             },
-            {
-                path: "selectAnimalType",
-                element: <h1>宠物品类选择</h1>,
-            },
-            {
-                path: "selectTime",
-                element: <h1>选择时间</h1>,
-            },
+
             {
                 path: "confirmOrder",
                 element: <h1>确认订单</h1>,
@@ -74,8 +70,12 @@ const router = createBrowserRouter([
                 element: <h1>美容主页</h1>,
             },
             {
-                path: "storeDetails",
+                path: "storeDetails/:storeId",
                 element: <h1>美容店详情</h1>,
+            },
+            {
+                path: "reservation/:storeId",
+                element: <Reservation serviceType="beauty" />,
             },
             {
                 path: "addAnimal",
@@ -133,15 +133,19 @@ const router = createBrowserRouter([
     },
     {
         path: "login",
-        element: <Login/>,
+        element: <Login />,
     },
     {
         path: "register",
         element: <Register />,
     },
     {
-        path: "/:reservationType/reservation",
-        element: <div>预约</div>,
+        path: "addAnimal",
+        element: <AddAnimal/>,
+    },
+    {
+        path: "selectAnimalType",
+        element: <h1>宠物品类选择</h1>,
     },
     // 独立的 about 子路由
     {

@@ -1,0 +1,34 @@
+.addAnimal{
+    font-family: PingFang SC-Regular;
+    .rv-nav-bar__arrow,.rv-nav-bar__title{
+        font-size: 18px;
+    }
+    .rv-nav-bar__right{
+        .rv-nav-bar__text{
+            color: #FCCB30;
+        }
+    }
+    .rv-field__control-wrapper{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .rv-uploader{
+        .rv-uploader__upload{
+            border-radius: 50%;
+        }
+        .rv-image__img{
+            border-radius: 50%;
+        }
+    }
+    .rv-form{
+        .rv-cell{
+            .rv-cell__title{
+                display: flex;
+                align-items: center;
+            }
+        }
+        .rv-cell--required:nth-child(1)::before{
+            top: 30px;
+        }
+    }
+}

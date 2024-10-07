@@ -20,7 +20,7 @@ const homeIndex = () => {
     </Swiper.Item>))
 
   const typeItems = typeSels.map(({ img, word, url }, index) => (
-    <Link to={url}>
+    <Link to={url} key={word}>
     <div key={index} className="typeItem">
       <img src={img} alt={word} />
       <span>{word}</span>

@@ -1,0 +1,30 @@
+.rv-popup__description {
+    .rv-nav-bar {
+        font-family: PingFang SC-Medium;
+
+        .rv-nav-bar__title,
+        .rv-nav-bar__arrow {
+            font-size: 18px;
+        }
+
+    }
+}
+
+.calendar-bottom {
+    padding: 15px;
+    display: flex;
+    font-size: 14px;
+    gap: 20px;
+    justify-content: center;
+
+    .calendar-bottom-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        .calendar-bottom-item-color {
+            width: 14px;
+            height: 14px;
+        }
+    }
+}

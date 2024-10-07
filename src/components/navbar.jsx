@@ -2,7 +2,7 @@ import { NavBar } from 'react-vant';
 import { ArrowLeft } from '@react-vant/icons';
 import { useNavigate } from 'react-router-dom';
 
-const Nav = ({ title = "", leftText = "", rightText = "", clickLeft, clickRight, showLeftArrow = false }) => {
+const Nav = ({ title = "", leftText = "", rightText = "", clickLeft, clickRight, showLeftArrow = false, fiexd = false }) => {
   let navigate = useNavigate();
 
   const handleClickLeft = () => {
@@ -27,6 +27,7 @@ const Nav = ({ title = "", leftText = "", rightText = "", clickLeft, clickRight,
 
   return (
     <NavBar
+      fixed={fiexd}
       safeAreaInsetTop
       leftArrow={leftArrowContent}
       className='navbar'

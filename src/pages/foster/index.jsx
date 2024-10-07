@@ -1,34 +1,95 @@
 import { Outlet, useLocation, useMatch } from "react-router-dom";
+import { ShareSheet } from 'react-vant'
+import { StarO, ShareO } from "@react-vant/icons";
 import Nav from "@/components/navbar";
 import "@/scss/foster.scss";
+import { useState, useEffect } from "react";
 
 const foster = () => {
     const location = useLocation();
-    const reservationMatch = useMatch("/foster/reservation");
+    const reservationMatch = useMatch("/foster/reservation/:storeId");
     const payMatch = useMatch("/foster/pay");
+    const storeDetailsMatch = useMatch("/foster/storeDetails/:storeId");
+    let [iconWhiteCssx, setIconWhiteCssx] = useState(true);
+    const [shareShow, setShareShow] = useState(false)
+    const StoreStar = () => {
+        console.log("收藏");
+    }
+    const StoreShare = () => {
+        setShareShow(true)
+    }
+    const options = [
+        { name: '微信', icon: 'wechat' },
+        { name: '微博', icon: 'weibo' },
+        { name: '复制链接', icon: 'link' },
+    ]
+    const rightActionBtn = (<div className="right-action-btn"><button onClick={StoreStar}><StarO /></button><button onClick={StoreShare}><ShareO /></button></div>)
+    useEffect(() => {
+        const handleScroll = () => {
+            let scrollYInVW = (window.scrollY / window.innerWidth) * 100;
+            if (scrollYInVW > 65) {
+                setIconWhiteCssx(false);
+            } else {
+                setIconWhiteCssx(true);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     let title = "寄养";
-    if (location.pathname === "/foster/storeDetails") {
+    let rightText = "";
+    let fiexd = false;
+    let iconWhiteCss = false;
+    let backgroundWhite = false;
+    if (storeDetailsMatch) {
         title = "";
+        rightText = rightActionBtn;
+        fiexd = true;
+        iconWhiteCss = true;
     } else if (reservationMatch) {
-        title = "预约";
-    } else if (location.pathname === "/foster/addAnimal") {
-        title = "添加宠物";
-    } else if (location.pathname === "/foster/selectAnimalType") {
-        title = "宠物品类选择";
-    } else if (location.pathname === "/foster/selectTime") {
-        title = "选择时间";
+        title = "预约寄养";
+        iconWhiteCss = false;
+        fiexd = true;
+        backgroundWhite = true;
     } else if (location.pathname === "/foster/confirmOrder") {
         title = "确认订单";
     } else if (payMatch) {
         title = "付款";
     }
+    const copyLink = async () => {
+        try {
+            await navigator.clipboard.writeText(window.location.href);
+            console.log('链接已复制到剪贴板');
+        } catch (err) {
+            console.error('复制链接失败:', err);
+        }
+    };
 
     return (
         <div className="foster">
-            <Nav title={title} showLeftArrow={true} clickLeft />
-            <div className="container">
+            <div className={(iconWhiteCss && iconWhiteCssx ? "icon-white" : "") + (backgroundWhite ? " background-white" : "")}>
+                <Nav title={title} showLeftArrow={true} rightText={rightText} clickLeft fiexd={fiexd} />
+            </div>
+            <div>
                 <Outlet />
             </div>
+            <ShareSheet
+                overlay={true}
+                visible={shareShow}
+                options={options}
+                title='分享到'
+                cancelText=''
+                onCancel={() => setShareShow(false)}
+                onSelect={(option, index) => {
+                    copyLink()
+                    console.log('option', option)
+                    console.log('index', index)
+                    setShareShow(false)
+                }}
+            />
         </div>
     );
 };

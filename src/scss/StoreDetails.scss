@@ -1,0 +1,111 @@
+.store-details {
+    img {
+        width: 375px;
+        height: 280px;
+    }
+
+    .store-details-info {
+        background-color: #F7F7F7;
+        border-radius: 10px 10px 0 0;
+        margin-top: -20px;
+        position: relative;
+        padding-bottom: 55px;
+
+        .border-round {
+            border-radius: 10px 10px 0 0;
+        }
+
+        .store-details-item {
+            background-color: #fff;
+            padding-bottom: 5px;
+
+            .dataShow-item {
+                padding-top: 10px;
+
+                .dataShow__title {
+                    font-size: 18px;
+                    padding-bottom: 0;
+                }
+
+                .dataShow__content_text {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            .store-details-info-other {
+                width: 345px;
+                height: 76px;
+                box-sizing: border-box;
+                border-radius: 10px;
+                padding: 18px;
+                background-color: #F8F8F8;
+                margin: 10px 0;
+                display: flex;
+                justify-content: space-between;
+
+                .store-details-info-other-item {
+                    display: flex;
+                    width: 80px;
+                    height: 40px;
+                    text-align: center;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    .store-details-info-other-item-top {
+                        color: #3A3B3C;
+                        font-size: 14px;
+                        font-family: PingFang SC-Medium;
+
+                    }
+
+                    .store-details-info-other-item-bottom {
+                        color: #999999;
+                        font-size: 12px;
+                        font-family: PingFang SC-Regular;
+                    }
+                }
+            }
+
+            .store-details-title {
+                font-size: 18px;
+                font-family: PingFang SC-Medium;
+                margin-bottom: 5px;
+            }
+
+            .store-details-content {
+                .store-details-content-item {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 14px;
+                    font-family: PingFang SC-Regular;
+                    color: #999999;
+                }
+
+                .rv-space {
+                    width: 100%;
+                }
+            }
+        }
+        
+        .container {
+            padding: 15px 15px 20px;
+        }
+
+        .store-price {
+            width: 375px;
+            max-height: 180px;
+            min-height: 80px;
+            padding: 15px 15px 30px;
+            box-sizing: border-box;
+        }
+
+    }
+
+}
+
+.rv-action-bar-button {
+    color: #000 !important;
+}
+
