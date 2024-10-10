@@ -19,16 +19,31 @@
         .rv-image__img{
             border-radius: 50%;
         }
+        .rv-uploader__upload-icon{
+            width: 100%;
+            height: 100%;
+        }
+        .rv-uploader__wrapper{
+            padding: 0;
+        }
     }
     .rv-form{
+        padding-top: 25px;
         .rv-cell{
+            padding: 22px var(--rv-cell-horizontal-padding);
             .rv-cell__title{
                 display: flex;
                 align-items: center;
             }
         }
         .rv-cell--required:nth-child(1)::before{
-            top: 30px;
+            top: 35px;
+        }
+        .rv-cell:last-child{
+            align-items: flex-start;
+            .rv-field__children{
+                width: 100%;
+            }
         }
     }
 }

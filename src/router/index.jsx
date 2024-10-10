@@ -10,6 +10,8 @@ import FosterIndex from "@/pages/foster/fosterIndex";
 import StoreDetails from "@/pages/foster/storeDetails";
 import Reservation from "@/pages/mix/reservation";
 import AddAnimal from "@/pages/mix/addAnimal";
+import Order from "@/pages/mix/order";
+import Pay from "@/pages/mix/pay";
 
 const router = createBrowserRouter([
     {
@@ -144,8 +146,12 @@ const router = createBrowserRouter([
         element: <AddAnimal/>,
     },
     {
-        path: "selectAnimalType",
-        element: <h1>宠物品类选择</h1>,
+        path: "order/:orderId",
+        element: <Order/>
+    },
+    {
+        path:"pay/:orderId",
+        element:<Pay/>
     },
     // 独立的 about 子路由
     {

@@ -6,21 +6,8 @@
         margin: 0 7.5px;
         width: 360px;
 
-        .rv-field{
+        .rv-field {
             width: 200px;
-        }
-    }
-
-    .searchResTitle {
-        margin: 0 16px;
-        display: flex;
-        justify-content: space-between;
-
-        button {
-            border: none;
-            background: none;
-            color: #b8b8b8;
-            font-size: 14px;
         }
     }
 
@@ -37,6 +24,22 @@
                 width: 80px;
                 border-color: #fccb30;
             }
+        }
+    }
+}
+
+.searchRes {
+
+    .searchResTitle {
+        margin: 0 16px;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            border: none;
+            background: none;
+            color: #b8b8b8;
+            font-size: 14px;
         }
     }
 }

@@ -71,7 +71,7 @@ const DropMenu = ({ onSelectCity }) => {
             {showSearch ? (
                 <div className="searchRes">
                     <h3 className="searchResTitle">搜索结果<button onClick={() => setShowSearch(false)}>取消</button></h3>
-                    <div className="search - results">
+                    <div className="search-results">
                         {searchResults.length <= 0 ? (
                             <Empty image="search" description="暂无搜索结果" />
                         ) : (

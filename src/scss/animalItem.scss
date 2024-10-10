@@ -1,0 +1,26 @@
+.animal-select-content-item {
+    width: 150px;
+    height: 60px;
+    display: flex;
+    gap: 10px;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: #E3E3E3 0.5px solid;
+    border-radius: 8px;
+
+    img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .animal-select-content-item-info {
+        width: 116px;
+
+        .animal-select-content-item-info-type {
+            font-size: 12px;
+            color: #999999;
+        }
+    }
+}

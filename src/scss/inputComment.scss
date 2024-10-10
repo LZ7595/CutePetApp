@@ -1,0 +1,27 @@
+.information-filling-item {
+    .information-filling-title {
+        display: block;
+        font-family: PingFang SC-Medium;
+        font-size: 15px;
+        padding: 15px 0;
+    }
+
+    .information-filling-input,.information-filling-input-big {
+        width: 345px;
+        height: 55px;
+        box-sizing: border-box;
+        padding: 19px 15px;
+        border: #E3E3E3 .5px solid;
+        border-radius: 10px;
+    }
+
+    .information-filling-input::placeholder,.information-filling-input-big::placeholder {
+        font-size: 13px;
+        color: #999999;
+    }
+
+    .information-filling-input-big {
+        height: 75px;
+        padding: 15px;
+    }
+}

@@ -38,90 +38,6 @@
                 overscroll-behavior-x: contain;
                 scrollbar-width: none;
 
-
-
-                .animal-select-content-item {
-                    width: 150px;
-                    height: 60px;
-                    display: flex;
-                    gap: 10px;
-                    box-sizing: border-box;
-                    padding: 10px 12px;
-                    border: #E3E3E3 0.5px solid;
-                    border-radius: 8px;
-
-                    img {
-                        width: 40px;
-                        height: 40px;
-                        object-fit: cover;
-                        border-radius: 50%;
-                    }
-
-                    .animal-select-content-item-info {
-                        width: 116px;
-
-                        .animal-select-content-item-info-type {
-                            font-size: 12px;
-                            color: #999999;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .data-select {
-        .rv-cell {
-            padding: 0;
-
-            .rv-cell__title {
-                font-size: 15px;
-                font-family: PingFang SC-Medium;
-
-            }
-        }
-
-        .data-select-view {
-            width: 345px;
-            height: 75px;
-            border-radius: 10px;
-            box-sizing: border-box;
-            border: 0.5px #E3E3E3 solid;
-            background-color: #FEFFFE;
-            margin: 15px 0;
-            padding: 15px;
-
-            .data-select-view-item {
-                box-sizing: border-box;
-                width: 135px;
-                height: 45px;
-                padding-top: 7px;
-                text-align: center;
-
-                .data-select-view-item-date {
-                    font-family: Helvetica Neue-Medium;
-                    font-size: 16px;
-                    color: #08090A;
-                }
-
-                .data-select-view-item-time {
-                    font-size: 12px;
-                    color: #999999;
-                }
-            }
-
-            .rv-divider--vertical {
-                height: 37px;
-                margin-top: 5px;
-            }
-
-            .selectNull {
-                width: 315px;
-                height: 45px;
-                box-sizing: border-box;
-                padding: 10px 0;
-                text-align: center;
-                font-size: 15px;
             }
         }
     }
@@ -129,34 +45,6 @@
     .information-filling {
         width: 345px;
         padding-bottom: 40px;
-
-        .information-filling-item {
-            .information-filling-title {
-                display: block;
-                font-family: PingFang SC-Medium;
-                font-size: 15px;
-                padding: 15px 0;
-            }
-
-            .information-filling-input,.information-filling-input-big {
-                width: 345px;
-                height: 55px;
-                box-sizing: border-box;
-                padding: 19px 15px;
-                border: #E3E3E3 .5px solid;
-                border-radius: 10px;
-            }
-
-            .information-filling-input::placeholder,.information-filling-input-big::placeholder {
-                font-size: 13px;
-                color: #999999;
-            }
-
-            .information-filling-input-big {
-                height: 75px;
-                padding: 15px;
-            }
-        }
     }
 }
 .resSubmit{

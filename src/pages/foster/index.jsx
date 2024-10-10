@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 const foster = () => {
     const location = useLocation();
     const reservationMatch = useMatch("/foster/reservation/:storeId");
-    const payMatch = useMatch("/foster/pay");
     const storeDetailsMatch = useMatch("/foster/storeDetails/:storeId");
     let [iconWhiteCssx, setIconWhiteCssx] = useState(true);
     const [shareShow, setShareShow] = useState(false)
@@ -54,10 +53,6 @@ const foster = () => {
         iconWhiteCss = false;
         fiexd = true;
         backgroundWhite = true;
-    } else if (location.pathname === "/foster/confirmOrder") {
-        title = "确认订单";
-    } else if (payMatch) {
-        title = "付款";
     }
     const copyLink = async () => {
         try {
