@@ -1,0 +1,129 @@
+.animal-select {
+    .rv-nav-bar__right {
+        .rv-nav-bar__text {
+            color: #FCCB30;
+        }
+    }
+
+    .animal-select-content {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .animal-select-contentItem {
+            font-family: PingFang SC-Regular;
+            width: 345px;
+            height: 90px;
+            border: .5px #E3E3E3 solid;
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding: 18px 15px 18px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                width: 54px;
+                height: 54px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+            .animal-select-contentItem-info {
+                width: 225px;
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+
+                .info-top {
+                    display: flex;
+                    align-items: center;
+                    gap: 7px;
+
+                    .top-title {
+                        font-size: 15px;
+                        color: #08090A;
+                    }
+
+                    .top-animalAge {
+                        height: 15px;
+                        padding: 0 3px;
+                        border-radius: 3px;
+                        background-color: #FCCB30;
+                        font-size: 10px;
+                        color: #3A3B3C;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+
+                .info-center {
+                    font-size: 12px;
+                    color: #3A3B3C;
+                }
+
+                .info-bottom {
+                    font-size: 11px;
+                    color: #999999;
+                }
+            }
+
+            input[type="radio"] {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                border-radius: 50%;
+                outline: none;
+                cursor: pointer;
+                width: 18px;
+                height: 18px;
+                border: 1px solid #A8A8A8;
+            }
+
+            input[type="radio"]:checked {
+                border: none;
+                background-color: #FCCB30;
+            }
+        }
+    }
+
+    .no-data {
+        box-sizing: border-box;
+        height: calc(100vh - 94px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .no-data-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+            img {
+                width: 185px;
+                height: 181px;
+            }
+
+            .no-data-info-text {
+                font-size: 13px;
+                color: #08090A;
+            }
+        }
+    }
+
+    .animal-select-bottom {
+        padding: 15px 20px;
+        position: absolute;
+        bottom: 0;
+
+        .animal-select-bottom-btn {
+            color: #08090A;
+            width: 335px;
+            height: 50px;
+            background-color: #FCCB30;
+            border-radius: 25px;
+        }
+    }
+}

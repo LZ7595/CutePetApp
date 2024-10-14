@@ -8,10 +8,14 @@ import Register from "@/pages/register";
 import Foster from "@/pages/foster";
 import FosterIndex from "@/pages/foster/fosterIndex";
 import StoreDetails from "@/pages/foster/storeDetails";
-import Reservation from "@/pages/mix/reservation";
+import FosterReservation from "@/pages/foster/reservation";
 import AddAnimal from "@/pages/mix/addAnimal";
 import Order from "@/pages/mix/order";
 import Pay from "@/pages/mix/pay";
+import Beauty from "@/pages/beauty";
+import BeautyIndex from "@/pages/beauty/beautyIndex";
+import ProductDetails from "@/pages/beauty/productDetails";
+import BeautyReservation from "@/pages/beauty/reservation";
 
 const router = createBrowserRouter([
     {
@@ -50,38 +54,25 @@ const router = createBrowserRouter([
             },
             {
                 path: "reservation/:storeId",
-                element: <Reservation serviceType="foster" />,
-            },
-
-            {
-                path: "confirmOrder",
-                element: <h1>确认订单</h1>,
-            },
-            {
-                path: "pay",
-                element: <h1>付款</h1>,
-            },
+                element: <FosterReservation />,
+            }
         ],
     },
     {
         path: "beauty",
-        element: <h1>美容</h1>,
+        element: <Beauty />,
         children: [
             {
                 path: "",
-                element: <h1>美容主页</h1>,
+                element: <BeautyIndex />,
             },
             {
-                path: "storeDetails/:storeId",
-                element: <h1>美容店详情</h1>,
+                path: "productDetails/:productId",
+                element: <ProductDetails />,
             },
             {
                 path: "reservation/:storeId",
-                element: <Reservation serviceType="beauty" />,
-            },
-            {
-                path: "addAnimal",
-                element: <h1>添加宠物</h1>,
+                element: <BeautyReservation />,
             },
             {
                 path: "selectNurse",
@@ -143,15 +134,15 @@ const router = createBrowserRouter([
     },
     {
         path: "addAnimal",
-        element: <AddAnimal/>,
+        element: <AddAnimal />,
     },
     {
         path: "order/:orderId",
-        element: <Order/>
+        element: <Order />
     },
     {
-        path:"pay/:orderId",
-        element:<Pay/>
+        path: "pay/:orderId",
+        element: <Pay />
     },
     // 独立的 about 子路由
     {

@@ -1,0 +1,85 @@
+.productDataShow-item {
+    display: flex;
+    gap: 12px;
+
+    img {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .item-text {
+        width: 100%;
+        overflow: hidden;
+        .item-title {
+            font-size: 16px;
+            font-family: PingFang SC-Medium;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            .discount-icon{
+                height: 16px;
+                width: 16px;
+                background: red;
+                color: white;
+                font-size: 12px;
+                border-radius: 3px;
+                font-family: PingFang SC-Regular;
+                text-align: center;
+            }
+        }
+        .rv-typography__text{
+            width: 182px;
+            height: 20px;
+            font-size: 14px;
+            color: #999999;
+            padding: 5px 0;
+        }
+        .priceAndBtn{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 35px;
+            .price{
+                color: red;
+                font-size: 12px;
+                .price-num{
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+            }
+            button{
+                width: 60px;
+                height: 28px;
+                background-color: #FCCB30;
+                border-radius: 14px;
+                font-size: 12px;
+            }
+        }
+        .storeName{
+            font-size: 12px;
+            color: #3A3B3C;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            padding: 5px 0;
+            .icon{
+                font-size: 16px;
+                width: 16px;
+                height: 18px;
+            }
+        }
+        .productInfo,.soldCount{
+            font-size: 12px;
+            color: #999999;
+            .rv-typography__text{
+                padding: 0;
+                height: 16px;
+                font-size: 12px;
+                width: 100%;
+            }
+        }
+    }
+
+}

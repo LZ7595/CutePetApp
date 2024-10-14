@@ -1,4 +1,4 @@
-.dataShow-item{
+.fosterDataShow-item{
     font-family: PingFang SC-Regular;
     display: flex;
     gap: 12px;
@@ -9,13 +9,13 @@
         border: none;
         border-radius: 5px;
     }
-    .dataShow__text{
+    .fosterDataShow__text{
         width: 100%;
-        .dataShow__title_flex{
+        .fosterDataShow__title_flex{
             display: flex;
             justify-content: space-between;
 
-            .dataShow__title{
+            .fosterDataShow__title{
                 font-size: 16px;
                 font-family: PingFang SC-Medium;
                 padding-bottom: 5px;
@@ -29,15 +29,15 @@
                 font-size: 12px;
             }
         }
-        .dataShow__content{
+        .fosterDataShow__content{
             font-size: 12px;
             color: #999999;
 
-            .dataShow__content_text{
+            .fosterDataShow__content_text{
                 height: 16px;
                 padding: 2.5px 0;
 
-                .dataShow__content_text_div{
+                .fosterDataShow__content_text_div{
                     font-size: 11px;
                     display: flex;
                     gap: 2px;

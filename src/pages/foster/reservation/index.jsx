@@ -5,10 +5,9 @@ import React ,{ useState } from "react";
 import AnimalItem from "@/components/animalItem";
 import DateSelection from "@/components/dateSelection";
 import InputComponent from "@/components/inputComment";
-import "@/scss/reservation.scss";
+import "@/scss/fosterReservation.scss";
 
-const reservation = ({ serviceType }) => {
-    const reservationType = serviceType === 'foster'? true : false;
+const fosterReservation = () => {
 
     const navigate = useNavigate();
     const { storeId } = useParams();
@@ -345,4 +344,4 @@ const reservation = ({ serviceType }) => {
     );
 };
 
-export default reservation;
+export default fosterReservation;

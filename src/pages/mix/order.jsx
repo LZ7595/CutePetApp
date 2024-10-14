@@ -9,6 +9,7 @@ import "@/scss/order.scss";
 
 const order = () => {
     const { orderId } = useParams();
+    const navigate = useNavigate();
     const order = {
         orderId: '10001',
         status: '待付款',
@@ -88,7 +89,7 @@ const order = () => {
                     </div>
                 </div>
             </div>
-            <SubmitBar textAlign="left" price={order.finalTotalPrice * 100} label='' buttonColor='#FCCB30' buttonText="提交订单" />
+            <SubmitBar textAlign="left" price={order.finalTotalPrice * 100} label='' buttonColor='#FCCB30' buttonText="提交订单" onSubmit={() => navigate(`/pay/${orderId}`)} />
         </div>
     );
 };

@@ -1,6 +1,7 @@
-import { Swiper, Space, Divider } from 'react-vant'
+import { Space, Divider } from 'react-vant'
 import Nav from '@/components/navbar'
-import DataShow from '@/components/dataShow'
+import FosterDataShow from '@/components/fosterDataShow'
+import Banner from '@/components/banner'
 
 const fosterIndex = () => {
     const img = ['/src/assets/img.jpg', '/src/assets/img.jpg', '/src/assets/img.jpg', '/src/assets/img.jpg']
@@ -109,16 +110,10 @@ const fosterIndex = () => {
             '宠物医疗咨询': '70元/30分钟'
         }
     }]
-    const items = img.map((imgUrl, index) => (
-        <Swiper.Item key={index}>
-            <img src={imgUrl} alt={index} />
-        </Swiper.Item>))
-    const dataShowItems = data.map((item, i) => <DataShow key={i} data={item} />);
+    const dataShowItems = data.map((item, i) => <FosterDataShow key={i} data={item} />);
     return (
         <div className="container">
-            <div className="banner">
-                <Swiper autoplay={5000}>{items}</Swiper>
-            </div>
+            <Banner img={img} />
             <div className="content">
                 <Nav leftText="推荐门店" />
                 <Space direction="vertical" gap='0.27vw' divider={<Divider />}>

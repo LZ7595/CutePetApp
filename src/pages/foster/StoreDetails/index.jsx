@@ -1,7 +1,7 @@
 import { useParams , useNavigate } from 'react-router-dom';
 import { Space, ActionBar } from 'react-vant';
 import { ChatO, PhoneO } from '@react-vant/icons'
-import DataShow from '@/components/dataShow';
+import FosterDataShow from '@/components/fosterDataShow';
 import "@/scss/StoreDetails.scss"
 
 const StoreDetails = () => {
@@ -120,7 +120,7 @@ const StoreDetails = () => {
                 <div className='store-details-info '>
                     <Space direction="vertical" gap='1.33vw'>
                         <div className="store-details-item container border-round">
-                            <DataShow data={store} imgShow={false} btnShow={false} textType="address" />
+                            <FosterDataShow data={store} imgShow={false} btnShow={false} textType="address" />
                             <div className='store-details-info-other'>
                                 <div className='store-details-info-other-item'>
                                     <div className='store-details-info-other-item-top'>{store.room_type}</div>
