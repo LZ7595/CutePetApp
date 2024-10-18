@@ -1,0 +1,48 @@
+.selectNurse-items {
+    padding: 54px 15px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    .selectNurse-item {
+        width: 165px;
+        height: 247px;
+        border: .5px solid #e8e8e8;
+        border-radius: 10px;
+        box-sizing: border-box;
+        background-color: #FEFFFE;
+        text-align: center;
+
+        img {
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+            object-position: top;
+            border-radius:  10px 10px 0 0;
+        }
+
+        .selectNurse-item-info {
+            font-family: PingFang SC-Regular;
+            padding: 10px 0;
+
+            .selectNurse-item-info-name {
+                font-family: PingFang SC-Medium;
+                color: #08090A;
+                font-size: 15px;
+            }
+
+            .selectNurse-item-info-office {
+                color: #3A3B3C;
+                font-size: 12px;
+            }
+            .selectNurse-item-info-praiseCount{
+                padding-top: 3px;
+                color: #999999;
+                font-size: 10px;
+            }
+        }
+    }
+    .selectNurse-item.highlighted{
+        border-color: #FCCB30;
+    }
+}

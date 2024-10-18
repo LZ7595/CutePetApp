@@ -71,3 +71,35 @@
 .rv-popup__description {
     margin: 0;
 }
+
+.demo-swiper {
+    margin-top: 8px;
+
+    .rv-swiper {
+        &__slide {
+            .rv-swiper-item {
+                color: #fff;
+                font-size: 20px;
+                height: 165px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                border-radius: 7px;
+            }
+        }
+
+        img {
+            outline: 5px solid #fff;
+            display: block;
+            box-sizing: border-box;
+            width: calc(100% - 5px);
+            height: 165px;
+            border: none;
+            border-radius: 7px;
+            background-color: #fff;
+            pointer-events: none;
+        }
+    }
+}

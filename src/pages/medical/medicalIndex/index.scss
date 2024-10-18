@@ -1,0 +1,71 @@
+.medicalIndex {
+    padding: 10px 15px;
+
+    .some-symptoms {
+        padding: 25px 0;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+
+        .some-symptoms-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+
+            img {
+                width: 45px;
+                height: 45px;
+            }
+
+            p {
+                font-size: 13px;
+                color: #999999;
+            }
+        }
+    }
+
+    .medical-function {
+        display: flex;
+        gap: 9px;
+        padding-bottom: 25px;
+
+        .medical-function-item {
+            width: 168px;
+            height: 70px;
+            box-sizing: border-box;
+            padding: 13px 13px 15px 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+
+            img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .medical-function-item-info {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                p {
+                    padding-top: 1px;
+                    display: flex;
+                    align-items: center;
+                    font-size: 14px;
+                }
+
+                span {
+                    font-size: 12px;
+                    color: #999999;
+                }
+            }
+        }
+    }
+    .medical-hospitals{
+        .medical-hospitals-title{
+            font-size: 18px;
+            padding-bottom: 15px;
+        }
+    }
+}

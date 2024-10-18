@@ -16,6 +16,11 @@ import Beauty from "@/pages/beauty";
 import BeautyIndex from "@/pages/beauty/beautyIndex";
 import ProductDetails from "@/pages/beauty/productDetails";
 import BeautyReservation from "@/pages/beauty/reservation";
+import SelectNurse from "@/pages/beauty/selectNurse";
+import NurseDetails from "@/pages/mix/nurseDetails";
+import Medical from "@/pages/medical";
+import MedicalIndex from "@/pages/medical/medicalIndex";
+import SymptomDetails from "@/pages/medical/symptomDetails";
 
 const router = createBrowserRouter([
     {
@@ -71,34 +76,27 @@ const router = createBrowserRouter([
                 element: <ProductDetails />,
             },
             {
-                path: "reservation/:storeId",
+                path: "reservation/:productId",
                 element: <BeautyReservation />,
             },
             {
                 path: "selectNurse",
-                element: <h1>选择美容师</h1>,
+                element: <SelectNurse />,
             },
-            {
-                path: "selectTime",
-                element: <h1>选择时间</h1>,
-            },
-            {
-                path: "nurseDetails",
-                element: <h1>美容师详情</h1>,
-            },
+
         ],
     },
     {
         path: "medical",
-        element: <h1>医疗</h1>,
+        element: <Medical />,
         children: [
             {
                 path: "",
-                element: <h1>医疗主页</h1>,
+                element: <MedicalIndex />,
             },
             {
-                path: "symptom",
-                element: <h1>症状</h1>,
+                path: "symptom/:symptomId",
+                element: <SymptomDetails/>,
             },
             {
                 path: "advice",
@@ -143,6 +141,10 @@ const router = createBrowserRouter([
     {
         path: "pay/:orderId",
         element: <Pay />
+    },
+    {
+        path: "nurseDetails/:nurseId",
+        element: <NurseDetails/>,
     },
     // 独立的 about 子路由
     {

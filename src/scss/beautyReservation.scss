@@ -1,0 +1,83 @@
+.beauty-reservation {
+    padding: 50px 0;
+
+    .reservation-InputItem {
+        padding: 0 15px;
+
+        .reservation-InputTitle {
+            display: block;
+            font-family: PingFang SC-Medium;
+            font-size: 15px;
+            padding: 15px 0;
+        }
+
+        .rv-cell {
+            width: 345px;
+            height: 55px;
+            border: .5px solid #E3E3E3;
+            border-radius: 10px;
+            padding: 15px;
+        }
+    }
+
+    .reservation-select {
+        margin-left: 15px;
+        font-family: PingFang SC-Medium;
+        width: 345px;
+
+        .reservation-selectTitle {
+            padding-top: 20px;
+            display: block;
+        }
+
+        .reservation-selectItems {
+            padding: 15px 0;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scrollbar-width: none;
+            gap: 10px;
+
+            .reservation-selectItem {
+                width: 100px;
+                height: 60px;
+                box-sizing: border-box;
+                padding: 15px 14px;
+                background-color: #f7f7f7;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+
+                .reservation-selectItemTitle {
+                    width: 72px;
+                    height: 18px;
+                    font-size: 12px;
+                    padding-bottom: 5px;
+                }
+
+                .reservation-selectItemPrice {
+                    font-size: 12px;
+                }
+            }
+             .highlighted{
+                background-color: #FCCB30;
+            }
+        }
+    }
+    .resSubmitLabel{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #FCCB30;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .rv-badge__wrapper{
+            width: 25px;
+            height: 25px;
+        }
+    }
+}

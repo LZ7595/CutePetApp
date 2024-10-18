@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import "@/scss/productDetails.scss";
 import ProductDataShow from "@/components/productDataShow";
 import AnimalSelect from "../animalSelect";
+import { useBeautyStore } from "@/store/beautyStore";
 
 const productDetails = () => {
     const data = [
@@ -128,16 +129,11 @@ const productDetails = () => {
             "review_text": "创意造型非常棒，宠物变得超级可爱。"
         }
     ];
-
+    const navigate = useNavigate();
     const { productId } = useParams();
-    const dataItem = data.find(item => item.product_id === parseInt(productId));
     const [animalSelectVisible, setAnimalSelectVisible] = useState(false);
-    const [selectedAnimal, setSelectedAnimal] = useState(null);
-    const [selectedAddress, setSelectedAddress] = useState(null);
-    const [selectedStore, setSelectedStore] = useState({
-        storeId: dataItem.merchant_id,
-        storeName:dataItem.merchant_name
-    });
+    const dataItem = data.find(item => item.product_id === parseInt(productId));
+    const { selectedAnimal, selectedAddress, selectedStore, setSelectedAnimal, setSelectedAddress, setSelectedStore, setSelectedProduct } = useBeautyStore();
     const buildRuleContent = () => {
         if (dataItem) {
             const ruleList = [];
@@ -160,18 +156,23 @@ const productDetails = () => {
         }
         return null;
     };
-    const handleSubmit = () => {
-        const petCellValue = document.querySelector('div.select > div:nth-child(1)').textContent;
-        const addressCellValue = document.querySelector('div.select > div:nth-child(2)').textContent;
-        const storeCellValue = document.querySelector('div.select > div:nth-child(3)').textContent;
+    useEffect(() => {
+        if (!selectedStore.storeName && dataItem) {
+            setSelectedStore({ storeId: dataItem.merchant_id, storeName: dataItem.merchant_name });
+        }
+    }, [dataItem, setSelectedStore]);
 
-        if (!petCellValue || petCellValue === "请选择宠物" || !addressCellValue || addressCellValue === "请选择地址" || !storeCellValue || storeCellValue === "请选择门店") {
+    const handleSubmit = () => {
+
+
+        if (!selectedAnimal || !selectedAddress || !selectedStore) {
             alert("请选择宠物、地址和门店");
             return;
         }
-
         // 这里可以添加提交后的实际逻辑，比如向后端发送请求等
-        console.log("提交成功，选中的宠物：", selectedAnimal, "地址：", addressCellValue, "门店：", storeCellValue);
+        console.log("提交成功，选中的宠物：", selectedAnimal, "地址：", selectedAddress, "门店：", selectedStore);
+        setSelectedProduct(dataItem);
+        navigate(`/beauty/reservation/${productId}`)
     };
 
 
@@ -195,7 +196,7 @@ const productDetails = () => {
                     title="地址"
                     value={selectedAddress ? "已选地址" : "请选择地址"}
                     onClick={() => {
-                        // 添加选择地址的逻辑，设置 selectedAddress
+                        // 添加选择地址的逻辑，调用 setSelectedAddress
                     }}
                 />
                 <Cell
@@ -203,7 +204,7 @@ const productDetails = () => {
                     title="门店"
                     value={selectedStore ? <div className="black">{selectedStore.storeName}</div> : "请选择门店"}
                     onClick={() => {
-                        // 添加选择门店的逻辑，设置 selectedStore
+                        // 添加选择门店的逻辑，调用 setSelectedStore
                     }}
                 />
             </div>

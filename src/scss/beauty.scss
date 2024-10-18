@@ -4,11 +4,13 @@
             color: white;
         }
     }
-    .background-white{
-        .rv-nav-bar{
+
+    .background-white {
+        .rv-nav-bar {
             background-color: white;
         }
     }
+
 
     .navbar {
 
@@ -29,10 +31,21 @@
         .rv-nav-bar__right:active {
             opacity: 1;
         }
+
         button {
             font-size: 22px;
             width: 22px;
             height: 22px;
+        }
+
+        .btn-selectedNurse {
+            width: 32px;
+            height: 22px;
+            font-size: 16px;
+            color: #FCCB30;
+        }
+        .btn-selectedNurse:disabled{
+            opacity: .6;
         }
     }
 
@@ -52,4 +65,6 @@
             }
         }
     }
+
+
 }

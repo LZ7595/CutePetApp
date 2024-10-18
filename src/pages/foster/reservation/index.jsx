@@ -4,7 +4,7 @@ import { Space, SubmitBar } from "react-vant";
 import React ,{ useState } from "react";
 import AnimalItem from "@/components/animalItem";
 import DateSelection from "@/components/dateSelection";
-import InputComponent from "@/components/inputComment";
+import InputComponent from "@/components/InputComponent";
 import "@/scss/fosterReservation.scss";
 
 const fosterReservation = () => {

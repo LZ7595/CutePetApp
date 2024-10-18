@@ -1,4 +1,4 @@
-import Nav from '@/components/navbar.jsx';
+import Nav from '@/components/navbar';
 import { Input, Button, Form } from 'react-vant';
 import { Arrow } from '@react-vant/icons'
 import { useState } from 'react';

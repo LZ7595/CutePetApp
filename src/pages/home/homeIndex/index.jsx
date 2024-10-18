@@ -1,6 +1,5 @@
 import Nav from "@/components/navbar";
 import '@/scss/home.scss'
-import '@/scss/banner.scss'
 import { ArrowDown, Arrow } from '@react-vant/icons'
 import { Swiper, Popup } from 'react-vant';
 import { useState } from 'react';
@@ -13,7 +12,7 @@ const homeIndex = () => {
   const [showCustomIconPosition, setShowCustomIconPosition] = useState(false)
   const [selectedArea, setSelectedArea] = useState('北京市');
   const banners = [{ img: '/src/assets/banner.png', color: '#FFBBA5' }, { img: '/src/assets/banner.png', color: '#FFBBA5' }, { img: '/src/assets/banner.png', color: '#FFBBA5' }, { img: '/src/assets/banner.png', color: '#FFBBA5' }]
-  const typeSels = [{ img: '/src/assets/寄养.png', word: '我要寄养', width: '40px', height: '36px' , url:'/foster' }, { img: '/src/assets/美容.png', word: '宠物美容', width: '33px', height: '35px', url:'/beauty' }, { img: '/src/assets/医疗.png', word: '宠物医疗', width: '37px', height: '34px' }, { img: '/src/assets/百科.png', word: '知识百科', width: '30px', height: '36px' }]
+  const typeSels = [{ img: '/src/assets/寄养.png', word: '我要寄养', width: '40px', height: '36px' , url:'/foster' }, { img: '/src/assets/美容.png', word: '宠物美容', width: '33px', height: '35px', url:'/beauty' }, { img: '/src/assets/医疗.png', word: '宠物医疗', width: '37px', height: '34px', url:'/medical' }, { img: '/src/assets/百科.png', word: '知识百科', width: '30px', height: '36px' }]
   const items = banners.map((item, index) => (
     <Swiper.Item key={index} style={{ background: item.color }}>
       <img src={item.img} alt="" />

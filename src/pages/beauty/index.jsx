@@ -1,12 +1,15 @@
-import { Outlet, useLocation, useMatch } from "react-router-dom";
+import { Outlet, useLocation, useMatch, useNavigate } from "react-router-dom";
 import { ShareSheet } from 'react-vant'
 import { StarO, ShareO } from "@react-vant/icons";
+import { useBeautyStore } from "@/store/beautyStore";
 import Nav from "@/components/navbar";
 import "@/scss/beauty.scss";
 import { useState, useEffect } from "react";
 
 const beauty = () => {
     const location = useLocation();
+    const navigate = useNavigate();
+    const { resetState,setSelectedNurse,selectedNurse } = useBeautyStore();
     const reservationMatch = useMatch("/beauty/reservation/:storeId");
     const storeDetailsMatch = useMatch("/beauty/productDetails/:productId");
     let [iconWhiteCssx, setIconWhiteCssx] = useState(true);
@@ -43,17 +46,33 @@ const beauty = () => {
     let fiexd = false;
     let iconWhiteCss = false;
     let backgroundWhite = false;
+    let onClickLeft = () => {
+        resetState()
+        navigate(-1)
+    };
+    
     if (storeDetailsMatch) {
         title = "";
         rightText = rightActionBtn;
         fiexd = true;
         backgroundWhite = true;
     } else if (reservationMatch) {
-        title = "预约寄养";
+        title = "预约美容";
         iconWhiteCss = false;
         fiexd = true;
         backgroundWhite = true;
+    }else if(location.pathname === "/beauty/selectNurse"){
+        title = "选择护理师";
+        iconWhiteCss = false;
+        fiexd = true;
+        backgroundWhite = true;
+        onClickLeft = () => {
+            setSelectedNurse({})
+            navigate(-1)
+        }
+        rightText = <button className="btn-selectedNurse" disabled={!selectedNurse.name} onClick={() => navigate(-1)}>预约</button>;
     }
+
     const copyLink = async () => {
         try {
             await navigator.clipboard.writeText(window.location.href);
@@ -66,7 +85,7 @@ const beauty = () => {
     return (
         <div className="beauty">
             <div className={(iconWhiteCss && iconWhiteCssx ? "icon-white" : "") + (backgroundWhite ? " background-white" : "")}>
-                <Nav title={title} showLeftArrow={true} rightText={rightText} clickLeft fiexd={fiexd} />
+                <Nav title={title} showLeftArrow={true} rightText={rightText} clickLeft={onClickLeft} fiexd={fiexd} />
             </div>
             <div>
                 <Outlet />

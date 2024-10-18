@@ -4,7 +4,7 @@ import { Typography , SubmitBar } from "react-vant";
 import Nav from "@/components/navbar";
 import DateSelection from "@/components/dateSelection";
 import AnimalItem from "@/components/animalItem";
-import InputComponent from "@/components/inputComment";
+import InputComponent from "@/components/InputComponent";
 import "@/scss/order.scss";
 
 const order = () => {
