@@ -1,0 +1,114 @@
+.hospitalDetail {
+    padding-bottom: 30px;
+
+    .hospitalDetail-top {
+        width: 375px;
+        height: 183px;
+        box-sizing: border-box;
+        padding-top: 40px;
+        background: linear-gradient(to bottom, #FCCB30, #FFFFFF);
+        ;
+    }
+
+    .hospitalDetail-content {
+        padding: 15px;
+
+        .hospitalDetail-content-info {
+            width: 345px;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            background: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.06);
+            margin-top: -100px;
+
+            .fosterDataShow__text {
+                height: 90px;
+                padding: 5px 0;
+                font-size: 13px;
+                box-sizing: border-box;
+
+                .hospitalDetail-content-info-description {
+                    height: 45px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+            }
+
+            .hospitalDetail-content-info-detail {
+                font-size: 13px;
+                padding: 10px 0 20px 0;
+            }
+
+            .hospitalDetail-content-info-order {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .hospitalDetail-content-info-order-left {
+                    font-size: 14px;
+                    width: 180px;
+
+                    .order-address {
+                        color: #999999;
+                    }
+                }
+
+                .hospitalDetail-content-info-order-right {
+                    width: 90px;
+                    height: 45px;
+
+                    .icon-btn {
+                        font-size: 25px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 5px;
+                        height: 45px;
+                        width: 45px;
+
+                        span {
+                            font-size: 10px;
+                            color: #999999;
+                        }
+                    }
+
+                    .rv-divider--vertical {
+                        top: 0.3em;
+                        height: 30px;
+                    }
+                }
+            }
+        }
+    }
+
+    .hospitalDetail-doctor {
+        .hospitalDetail-doctor-list {
+            margin: 0 var(--rv-padding-md) 20px;
+            display: flex;
+            gap: 5px;
+            overflow: hidden;
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scrollbar-width: none;
+        }
+    }
+
+    .hospitalDetail-comment,
+    .hospitalDetail-doctor {
+        .rv-cell {
+            .rv-cell__title {
+                font-size: 18px;
+            }
+
+            .rv-cell__value {
+                font-size: 12px;
+            }
+        }
+
+        .rv-cell::after {
+            display: none;
+        }
+    }
+}

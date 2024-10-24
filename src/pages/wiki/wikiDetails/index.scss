@@ -1,0 +1,54 @@
+.wikiDetails {
+    width: 375px;
+
+    .wikiDetails__Image {
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+
+    .wikiDetails__content {
+        margin-top: -60px;
+        position: relative;
+        border-radius: 10px 10px 0 0;
+        padding-bottom: 50px;
+
+        .wikiIndex__content__item {
+            border-radius: 10px 10px 0 0;
+
+            .wikiIndex__content__item__info {
+                padding: 24px 20px;
+
+                .wikiIndex__content__item__info__title {
+                    font-size: 21px;
+                    padding-bottom: 10px;
+                    font-family: PingFang SC-Semibold;
+                }
+            }
+
+            .wikiIndex__content__item__info__desc {
+                .wikiIndex__content__item__info__desc__left {
+                    font-size: 14px;
+
+                    img {
+                        width: 22px;
+                        height: 22px;
+                    }
+                }
+            }
+        }
+
+        .wikiDetails__content__text {
+            padding: 0 20px;
+            font-size: 15px;
+
+            img {
+                margin: 20px 0;
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+    }
+}

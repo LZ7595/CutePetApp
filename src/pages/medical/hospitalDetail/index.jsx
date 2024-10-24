@@ -1,51 +1,14 @@
-import Banner from "@/components/banner";
-import { Space, Divider } from "react-vant";
-import { Arrow } from "@react-vant/icons";
-import FosterDataShow from "@/components/fosterDataShow";
-import { useNavigate } from "react-router-dom";
 import './index.scss'
+import Nav from '@/components/navbar';
+import Review from '@/components/review';
+import { useParams, useNavigate } from 'react-router-dom';
+import FosterDataShow from "@/components/fosterDataShow";
+import { Rate, Space, Typography, Divider, Cell } from "react-vant"
+import { GuideO, PhoneO } from "@react-vant/icons"
+import NurseInfo from '../../../components/nurseInfo';
 
-const medicalIndex = () => {
-    const navigate = useNavigate();
-    const img = ["/src/assets/cd.png", "/src/assets/cd.png", "/src/assets/cd.png", "/src/assets/cd.png"]
-    const someSymptoms = [
-        {
-            id: 1,
-            name: "犬细小",
-            imgUrl: "/src/assets/犬细小.png",
-            englishName: "Canine Parvovirus",
-            introduction: "犬细小是一种由犬细小病毒引起的高度接触性传染病，以急性出血性肠炎和心肌炎为特征。"
-        },
-        {
-            id: 2,
-            name: "猫传腹",
-            imgUrl: "/src/assets/猫传腹.png",
-            englishName: "Feline Infectious Peritonitis",
-            introduction: "猫传染性腹膜炎是一种由猫冠状病毒变异引起的致命性疾病，主要表现为腹水、胸水、黄疸等症状。"
-        },
-        {
-            id: 3,
-            name: "莱姆症",
-            imgUrl: "/src/assets/莱姆症.png",
-            englishName: "Lyme disease",
-            introduction: "莱姆病是一种由伯氏疏螺旋体引起的以蜱为传播媒介的自然疫源性疾病，可引起皮肤、心脏、神经等多系统损害。"
-        },
-        {
-            id: 4,
-            name: "关节脱位",
-            imgUrl: "/src/assets/关节脱位.png",
-            englishName: "Joint dislocation",
-            introduction: "关节脱位是指关节面失去正常的对合关系，多由外力作用引起，可导致疼痛、肿胀、活动受限等症状。"
-        },
-        {
-            id: 5,
-            name: "角膜溃疡",
-            imgUrl: "/src/assets/角膜溃疡.png",
-            englishName: "Corneal ulcer",
-            introduction: "角膜溃疡是一种常见的眼科疾病，通常由感染、外伤、营养不良等因素引起，可导致视力下降、疼痛、畏光等症状。"
-        }
-    ];
-    const medicalFunction = [{ title: "快速问诊", color: "#E6F4FF", imgUrl: "/src/assets/闪电.png", content: "实时在线 60秒接诊" }, { title: "症状自查", color: "#E4F7F1", imgUrl: "/src/assets/搜索.png", content: "症状自查 实时搜索" }]
+
+const hospitalDetail = () => {
     const data = [
         {
             id: '1',
@@ -61,7 +24,23 @@ const medicalIndex = () => {
                 {
                     commenter: '周八',
                     score: 4,
-                    img: [],
+                    img: ["/src/assets/矩形.png","/src/assets/矩形.png","/src/assets/矩形.png"],
+                    commenterAvatar: '/src/assets/avatar6.jpg',
+                    publishDate: '2024-10-10',
+                    commentText: '这家医院的医生很专业，服务也很周到。'
+                },
+                {
+                    commenter: '周八',
+                    score: 4,
+                    img: ["/src/assets/矩形.png","/src/assets/矩形.png"],
+                    commenterAvatar: '/src/assets/avatar6.jpg',
+                    publishDate: '2024-10-10',
+                    commentText: '这家医院的医生很专业，服务也很周到。'
+                },
+                {
+                    commenter: '周八',
+                    score: 4,
+                    img: ["/src/assets/矩形.png","/src/assets/矩形.png","/src/assets/矩形.png","/src/assets/矩形.png"],
                     commenterAvatar: '/src/assets/avatar6.jpg',
                     publishDate: '2024-10-10',
                     commentText: '这家医院的医生很专业，服务也很周到。'
@@ -153,48 +132,47 @@ const medicalIndex = () => {
             ]
         }
     ];
-    const dataShowItems = data.map((item, i) => <FosterDataShow key={i} data={item} btnShow={false} onClick={() => navigate(`/medical/hospitalDetail/${item.id}`)} />);
+    const { hospitalId } = useParams();
+    const hospitaltext = data.find(item => item.id === hospitalId);
     return (
-        <div className="medicalIndex">
-            <Banner img={img} />
-            <div className="some-symptoms">
-                {
-                    someSymptoms.map((item, index) => {
-                        return (
-                            <div className="some-symptoms-item" key={index} onClick={()=>navigate(`/medical/symptom/${item.id}`)}>
-                                <img src={item.imgUrl} alt="" />
-                                <p>{item.name}</p>
-                            </div>
-                        )
-                    })
-                }
+        <div className='hospitalDetail'>
+            <div className="hospitalDetail-top">
+                <Nav title="医院详情" showLeftArrow={true} clickLeft />
             </div>
-            <div className="medical-function">
-                {
-                    medicalFunction.map((item, index) => {
-                        return (
-                            <div className="medical-function-item" key={index} style={{ backgroundColor: item.color }}>
-                                <div className="medical-function-item-info">
-                                    <p>{item.title} <Arrow /></p>
-                                    <span>{item.content}</span>
-                                </div>
-                                <img src={item.imgUrl} alt="" />
-                            </div>
-                        )
-                    })
-                }
-            </div>
-            <div className="medical-hospitals">
-                <div className="medical-hospitals-title">
-                    <p>周边医院</p>
+            <div className="hospitalDetail-content">
+                <div className='hospitalDetail-content-info'>
+                    <FosterDataShow data={hospitaltext} btnShow={false} description={<div className='hospitalDetail-content-info-description'><div>排名</div><Rate allowHalf value={hospitaltext.rating} size='2.66667vw' gutter='0.53vw' readOnly voidColor='#FCCB30' color='#FCCB30' /></div>} />
+                    <div className='hospitalDetail-content-info-detail'>
+                        <div className='hospitalDetail-content-info-detail-workTime'>营业时间：{hospitaltext.businessHours}</div>
+                        <div className='hospitalDetail-content-info-detail-hospitalOverview'>医院概况：<Typography ellipsis={3}>{hospitaltext.hospitalOverview}</Typography></div>
+                    </div>
+                    <div className='hospitalDetail-content-info-order'>
+                        <div className='hospitalDetail-content-info-order-left'>
+                            <div className='order-distance'>距您{hospitaltext.distance}km</div>
+                            <div className='order-address'>{hospitaltext.address}</div>
+                        </div>
+                        <div className='hospitalDetail-content-info-order-right'>
+                            <Space gap={'1.33vw'} divider={<Divider type='vertical' />}>
+                                <div className='icon-btn'><GuideO /><span>导航</span></div>
+                                <div className='icon-btn'><PhoneO /><span>致电</span></div>
+                            </Space>
+                        </div>
+                    </div>
                 </div>
-                <div className="medical-hospitals-content">
-                    <Space direction="vertical" gap='0.27vw' divider={<Divider />}>
-                        {dataShowItems}
+            </div>
+            <div className='hospitalDetail-doctor'>
+                <Cell title="认证医师"  />
+                <div className='hospitalDetail-doctor-list'><NurseInfo/></div>
+            </div>
+            <div className='hospitalDetail-comment'>
+                    <Cell isLink title="热门评论" value="查看全部" />
+                    <Space direction="vertical" divider={<Divider />}>
+                        {hospitaltext.comments.map((item, index) => (
+                            <Review data={item} key={index} />
+                        ))}
                     </Space>
-                </div>
             </div>
         </div>
-    );
+    )
 }
-export default medicalIndex;
+export default hospitalDetail;

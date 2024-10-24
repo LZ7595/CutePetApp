@@ -1,0 +1,48 @@
+.wikiIndex__content__item {
+    background: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 8px;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px 5px 0 0;
+        object-fit: contain;
+    }
+
+    .wikiIndex__content__item__info {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+
+        .wikiIndex__content__item__info__title {
+            font-size: 13px;
+            padding-bottom: 6px;
+        }
+
+        .wikiIndex__content__item__info__desc {
+            display: flex;
+            justify-content: space-between;
+
+            .wikiIndex__content__item__info__desc__left {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+                font-size: 10px;
+                color: #999999;
+
+                img {
+                    width: 17px;
+                    height: 17px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+
+            .wikiIndex__content__item__info__desc__right {
+                font-size: 12px;
+                color: #999999;
+            }
+        }
+    }
+}

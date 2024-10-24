@@ -197,7 +197,7 @@ const nurseDetails = () => {
 
     return (
         <div className="nurseDetails">
-            <Nav showLeftArrow={true} title="医生详情" rightText={rightActionBtn} />
+            <Nav showLeftArrow={true} title="医生详情" rightText={rightActionBtn} clickLeft />
             <div className="nurseDetails-content">
                 <div className="nurseDetails-content-top">
                     <div className="nurseDetails-content-topDiv">

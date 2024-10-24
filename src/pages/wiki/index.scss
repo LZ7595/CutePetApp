@@ -1,0 +1,40 @@
+.wiki {
+    .icon-white {
+        .rv-nav-bar .rv-icon {
+            color: white;
+        }
+    }
+
+    .background-white {
+        .rv-nav-bar {
+            background-color: white;
+        }
+    }
+
+    .navbar {
+
+        .rv-nav-bar__title,
+        .rv-nav-bar__left>svg {
+            font-size: 18px;
+        }
+
+        .right-action-btn {
+            display: flex;
+            gap: 15px;
+
+            button:active {
+                opacity: var(--rv-active-opacity);
+            }
+        }
+
+        .rv-nav-bar__right:active {
+            opacity: 1;
+        }
+
+        button {
+            font-size: 22px;
+            width: 22px;
+            height: 22px;
+        }
+    }
+}

@@ -21,6 +21,10 @@ import NurseDetails from "@/pages/mix/nurseDetails";
 import Medical from "@/pages/medical";
 import MedicalIndex from "@/pages/medical/medicalIndex";
 import SymptomDetails from "@/pages/medical/symptomDetails";
+import HospitalDetail from "@/pages/medical/hospitalDetail";
+import Wiki from "@/pages/wiki";
+import WikiIndex from "@/pages/wiki/wikiIndex";
+import WikiDetails from "@/pages/wiki/wikiDetails";
 
 const router = createBrowserRouter([
     {
@@ -103,22 +107,22 @@ const router = createBrowserRouter([
                 element: <h1>咨询</h1>,
             },
             {
-                path: "hospitalDetails",
-                element: <h1>医院详情</h1>,
+                path: "hospitalDetail/:hospitalId",
+                element: <HospitalDetail/>,
             },
         ],
     },
     {
         path: "wiki",
-        element: <h1>百科</h1>,
+        element: <Wiki/>,
         children: [
             {
                 path: "",
-                element: <h1>百科主页</h1>,
+                element: <WikiIndex/>,
             },
             {
-                path: "wikiDetails",
-                element: <h1>百科详情</h1>,
+                path: "wikiDetails/:wikiId",
+                element: <WikiDetails />,
             },
         ],
     },
