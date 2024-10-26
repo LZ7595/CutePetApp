@@ -1,6 +1,8 @@
 $text-above-image: true;
 
 .user-tab {
+    padding-bottom: 10px;
+
     .rv-cell__left-icon {
         width: 40px;
         height: 40px;
@@ -14,24 +16,30 @@ $text-above-image: true;
         width: 60px;
         height: 28px;
         font-size: 12px;
-        color: #FCCB30;
-        border: #FCCB30 solid 1px;
+        color: #fccb30;
+        border: #fccb30 solid 1px;
         margin-right: 6px;
     }
 
-}
-
-.user-content {
-    display: flex;
-    flex-direction: column;
-
-    &.text-below-image {
-        flex-direction: column-reverse;
+    .rv-cell__value {
+        .user-tab-time {
+            font-size: 12px;
+            color: #999999;
+        }
     }
 
-    .user-content-text {
-        padding: 7px var(--rv-padding-md);
-        font-family: PingFang SC-Regular;
-        letter-spacing: 0.5px;
+    .user-content {
+        display: flex;
+        flex-direction: column;
+
+        &.text-below-image {
+            flex-direction: column-reverse;
+        }
+
+        .user-content-text {
+            padding: 7px var(--rv-padding-md);
+            font-family: PingFang SC-Regular;
+            letter-spacing: 0.5px;
+        }
     }
 }

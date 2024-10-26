@@ -1,0 +1,33 @@
+.followButton{
+    .followButton__button{
+        width: 60px;
+        height: 26px;
+        background-color: #fff;
+        color: #FCCB30;
+        border: 1px solid #FCCB30;
+        font-size: 12px;
+        border-radius: 14px;
+        display: flex;
+        gap: 2px;
+        align-items: center;
+        justify-content: center;
+
+        svg{
+            width: 12px;
+            height: 12px;
+            path{
+                fill: #FCCB30;
+            }
+        }
+    }
+    .followed{
+        background-color: #FCCB30;
+        color: #fff;
+        border: none;
+        svg{
+            path{
+                fill: #fff;
+            }
+        }
+    }
+}

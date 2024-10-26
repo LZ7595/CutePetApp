@@ -157,11 +157,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <h1>关注(默认页)</h1>,
-            },
-            {
-                path: "referral",
-                element: <h1>推荐</h1>,
+                element: <About/>,
             },
             {
                 path: "dynamic",

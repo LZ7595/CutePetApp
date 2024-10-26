@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import './index.scss'
 
-const InteractionBar = () => {
-    const [like, setLike] = useState(66)
+const InteractionBar = ({data}) => {
+    const {likeCount, forwardCount, commentCount, likeList} = data;
+    const [like, setLike] = useState(likeCount)
     const [likeactive, setLikeactive] = useState(false)
-    const [heart, setheart] = useState(22)
+    const [heart, setheart] = useState(forwardCount)
     const [heartactive, setHeartactive] = useState(false)
-    const [comment, setcomment] = useState(55)
+    const [comment, setcomment] = useState(commentCount)
     const [commentactive, setCommentactive] = useState(false)
 
     const likeFun = () => {
@@ -40,9 +41,10 @@ const InteractionBar = () => {
         <div className="bar">
             <div className='commentAbouts'>
                 <div className="container">
-                    <div className="div1"><img src='/src/assets/5.jpg' /></div>
-                    <div className="div2"><img src='/src/assets/5.jpg' /></div>
-                    <div className="div3"><img src='/src/assets/5.jpg' /></div>
+                    {likeList.map((item, index) => {
+                        return <div className={`div${index + 1}`}><img src={item.avatarUrl} alt={item.userId} /></div>
+                    })
+                    }
                 </div>
                 <span className='commentAboutsText'>等人评论过</span>
             </div>

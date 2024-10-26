@@ -1,9 +1,61 @@
-import { Search } from "react-vant";
+import { Search, Divider, Space } from "react-vant";
 import { useState } from "react";
-import "@/scss/about.scss"
+import Usertab from "@/components/usertab";
+import FollowButton from "@/components/followButton";
+import "./index.scss"
 
 const about = () => {
+    const options = ['关注', '推荐'];
+    const items = Array.from({ length: 10 });
+    const recommend = [{userId:"5562",avatarUrl:"/src/assets/椭圆形.png",userName:"王泡芙",label:"知名萌宠博主"},{userId:"5872",avatarUrl:"/src/assets/椭圆形-2.png",userName:"奥利奥",label:"知名萌宠博主"},{userId:"5743",avatarUrl:"/src/assets/椭圆形-1.png",userName:"赖小来",label:"知名萌宠博主"},{userId:"5552",avatarUrl:"/src/assets/椭圆形-5.jpg",userName:"魏晓理",label:"知名摄像博主"}]
+    
     const [value, setValue] = useState('');
+    const [activeSpan, setActiveSpan] = useState(0);
+    const AboutOptionsContent0 = () => {
+        return (
+            <>
+            <div className="about-barContent0">
+                    {items.map((_, i) => (
+                        <div key={i} className="about-barContent-item">
+                            <img src="/src/assets/cd.png" alt="" />
+                        </div>
+                    ))}
+                </div>
+                <div className="about-barContent-Divider"><Divider /></div>
+                <div className="about-content">
+                    <Space divider={<Divider/>} gap={0} direction="vertical">
+                    <Usertab showType = 'animalTypeTime' ImgShowType ="straight"/>
+                    <Usertab showType = 'animalTypeTime' ImgShowType ="straight"/>
+                    <Usertab showType = 'animalTypeTime' ImgShowType ="straight"/>
+                    </Space>
+                </div>
+                </>
+        )
+    }
+
+    const AboutOptionsContent1 = () => {
+        return(
+            <>
+            <div className="about-barContent1">
+                {recommend.map(({userId,avatarUrl,userName,label},index) => (
+                    <div key={`${index}-${userId}`} className="about-barContent-item">
+                        <img src={avatarUrl} alt="" />
+                        <div className="about-barContent-item-content">
+                            <div className="about-barContent-item-content-name">{userName}</div>
+                            <div className="about-barContent-item-content-label">{label}</div>
+                            <FollowButton userId={userId} />
+                        </div>
+                    </div>
+                ))}
+                </div>
+            </>
+        )
+    }
+
+    const handleSpanClick = (index) => {
+        setActiveSpan(index === activeSpan ? null : index);
+    };
+
     return (
         <div className="about">
             <Search
@@ -16,6 +68,22 @@ const about = () => {
                     </button>
                 }
             />
+            <div className="about-bar">
+                {options.map((option, index) => (
+                    <div key={index} className="about-bar-title">
+                        <span
+                            className={activeSpan === index ? 'active' : ''}
+                            onClick={() => handleSpanClick(index)}
+                        >
+                            {option}
+                        </span>
+                    </div>
+                ))}
+            </div>
+            <div className="about-options-Content">
+                {activeSpan === 0 && <AboutOptionsContent0/>}
+                {activeSpan === 1 && <AboutOptionsContent1/>}
+            </div>
         </div>
     )
 }

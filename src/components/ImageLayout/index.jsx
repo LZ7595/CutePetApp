@@ -1,28 +1,40 @@
-import { ImagePreview } from 'react-vant'
-import "./index.scss"
+import { ImagePreview } from 'react-vant';
+import "./index.scss";
 
 const ImageLayout = ({ imageUrls, showType = 'straight' }) => {
-    const numImages = imageUrls.length;
+    // 判断传入的imageUrls是否是包含对象的数组（类似mediaList结构）
+    const isMediaListLike = Array.isArray(imageUrls) && imageUrls.length > 0 && typeof imageUrls[0] === 'object';
+
+    // 如果是包含对象的数组，提取出mediaUrl组成新的只包含图片链接的数组，并保留mediaDescription用于alt属性
+    const processedImageUrls = isMediaListLike
+        ? imageUrls.map((media, index) => ({
+            url: media.mediaUrl,
+            alt: media.mediaDescription,
+            key: media.mediaId || index
+        }))
+        : imageUrls.map((url, index) => ({ url, alt: '', key: index }));
+
+    const numImages = processedImageUrls.length;
     const rows = [];
 
     switch (showType) {
         case 'straight':
             if (numImages === 1) {
-                rows.push(<img src={imageUrls[0]} key={1} className='single-image'
+                rows.push(<img src={processedImageUrls[0].url} key={processedImageUrls[0].key} className='single-image' alt={processedImageUrls[0].alt}
                     onClick={() =>
                         ImagePreview.open({
                             lazyload: true,
-                            images: imageUrls
+                            images: processedImageUrls.map(({ url }) => url)
                         })} />);
             } else if (numImages >= 2) {
                 rows.push(
                     <div className='straight-images-row'>
-                        {imageUrls.map((url, index) => {
-                            return <img src={url} key={index}
+                        {processedImageUrls.map(({ url, alt, key }, index) => {
+                            return <img src={url} key={key} alt={alt}
                                 onClick={() =>
                                     ImagePreview.open({
                                         lazyload: true,
-                                        images: imageUrls,
+                                        images: processedImageUrls.map(({ url }) => url),
                                         startPosition: index,
 
                                     })}
@@ -36,22 +48,22 @@ const ImageLayout = ({ imageUrls, showType = 'straight' }) => {
             break;
         case 'grid':
             if (numImages === 1) {
-                rows.push(<img src={imageUrls[0]} key={1} className='single-image'
+                rows.push(<img src={processedImageUrls[0].url} key={processedImageUrls[0].key} className='single-image' alt={processedImageUrls[0].alt}
                     onClick={() =>
                         ImagePreview.open({
                             lazyload: true,
-                            images: imageUrls,
+                            images: processedImageUrls.map(({ url }) => url),
                         })}
                 />);
             } else if (numImages >= 2 && numImages <= 4) {
                 rows.push(
                     <div className='two-images-row'>
-                        {imageUrls.map((url, index) => {
-                            return <img src={url} key={index}
+                        {processedImageUrls.map(({ url, alt, key }, index) => {
+                            return <img src={url} key={key} alt={alt}
                                 onClick={() =>
                                     ImagePreview.open({
                                         lazyload: true,
-                                        images: imageUrls,
+                                        images: processedImageUrls.map(({ url }) => url),
                                         startPosition: index,
                                     })}
                             />;
@@ -61,12 +73,12 @@ const ImageLayout = ({ imageUrls, showType = 'straight' }) => {
             } else if (numImages >= 5) {
                 rows.push(
                     <div className='three-images-row'>
-                        {imageUrls.map((url, index) => {
-                            return <img src={url} key={index}
+                        {processedImageUrls.map(({ url, alt, key }, index) => {
+                            return <img src={url} key={key} alt={alt}
                                 onClick={() =>
                                     ImagePreview.open({
                                         lazyload: true,
-                                        images: imageUrls,
+                                        images: processedImageUrls.map(({ url }) => url),
                                         startPosition: index,
 
                                     })}
