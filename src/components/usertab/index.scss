@@ -3,29 +3,31 @@ $text-above-image: true;
 .user-tab {
     padding-bottom: 10px;
 
-    .rv-cell__left-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .rv-cell__title {
-        font-size: 15px;
-    }
-
-    .rv-button {
-        width: 60px;
-        height: 28px;
-        font-size: 12px;
-        color: #fccb30;
-        border: #fccb30 solid 1px;
-        margin-right: 6px;
-    }
-
-    .rv-cell__value {
-        .user-tab-time {
-            font-size: 12px;
-            color: #999999;
+    .rv-cell {
+        .rv-cell__left-icon {
+            width: 40px;
+            height: 40px;
         }
+
+        .rv-cell__title {
+            font-size: 15px;
+        }
+
+        .rv-cell__value {
+            span {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+        }
+    }
+
+    .rv-cell::after {
+        display: none;
+    }
+
+    .user-tab-time {
+        font-size: 12px;
+        color: #999999;
     }
 
     .user-content {
@@ -40,6 +42,11 @@ $text-above-image: true;
             padding: 7px var(--rv-padding-md);
             font-family: PingFang SC-Regular;
             letter-spacing: 0.5px;
+        }
+    }
+    .user-bar{
+        .user-tab-time{
+            padding-left: 15px;
         }
     }
 }

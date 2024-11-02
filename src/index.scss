@@ -21,6 +21,26 @@ button {
   padding: 0;
   margin: 0;
 }
-.black{
+
+.black {
   color: var(--rv-black);
+}
+
+.rv-popup {
+  .rv-image-preview__content {
+    .rv-image-preview__slides {
+      .rv-image-preview__slides-inner {
+        .rv-image-preview__slide {
+          .rv-image-preview__control {
+            .rv-image-preview__image-wrapper {
+              img {
+                width: 100%;
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
 }

@@ -1,6 +1,9 @@
-import { Cell, Image, Button, Typography } from 'react-vant';
+import { Cell, Image, Typography } from 'react-vant';
+import { useNavigate } from 'react-router-dom';
 import ImageLayout from '@/components/ImageLayout';
 import InteractionBar from '@/components/InteractionBar';
+import FollowButton from '@/components/followButton';
+import { getRelativeTime } from '@/utils/date';
 import './index.scss';
 
 const usertab = ({ data = {
@@ -55,47 +58,29 @@ const usertab = ({ data = {
         // 假设这里还有其他点赞用户信息，但只取前三个展示头像
     ]
 }
-    , textAboveImage = true, showType = 'LocationTimeBtn', ImgShowType = 'grid' }) => {
+    , textAboveImage = true, showType = 'LocationTimeBtn', ImgShowType = 'grid', dynamicLink }) => {
     // 创建一个类名，根据textAboveImage的值来决定是否添加text - below - image类名
     const contentClass = textAboveImage ? '' : 'text-below-image';
     const { dynamicId, author, publishTime, publishLocation, mediaList, textContent, likeCount, forwardCount, commentCount, likeList } = data;
-    function getRelativeTime(publishTimeStamp) {
-        const currentTimeStamp = Date.now();
-        const oneHourInMillis = 60 * 60 * 1000;
-        const oneDayInMillis = 24 * 60 * 60 * 1000;
-        const oneWeekInMillis = 7 * oneDayInMillis;
-
-        const diffInMillis = currentTimeStamp - publishTimeStamp;
-
-        if (diffInMillis < oneHourInMillis) {
-            const minutes = Math.floor(diffInMillis / (60 * 1000));
-            return `${minutes}分钟前`;
-        } else if (diffInMillis < oneDayInMillis) {
-            const hours = Math.floor(diffInMillis / (60 * 60 * 1000));
-            return `${hours}小时前`;
-        } else if (diffInMillis < oneWeekInMillis) {
-            const days = Math.floor(diffInMillis / oneDayInMillis);
-            return `${days}天前`;
-        } else {
-            const publishDate = new Date(publishTimeStamp);
-            const year = publishDate.getFullYear();
-            const month = String(publishDate.getMonth() + 1).padStart(2, '0');
-            const day = String(publishDate.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        }
-    }
     const relativeTime = getRelativeTime(publishTime);
+    const relativeTimeFull = getRelativeTime(publishTime, 'full');
+    const navigate = useNavigate();
+
     return (
         <>
             <div className="user-tab">
                 <Cell
                     center
                     title={author.userName}
-                    label={showType === 'LocationTimeBtn' ? `${publishLocation} ${relativeTime}` : showType === 'animalTypeBtn' || showType === 'animalTypeTime' ? '不拉多尔-泡芙' : ''}
+                    label={showType === 'LocationTimeBtn' ? `${publishLocation} ${relativeTime}` : showType === 'animalTypeBtn' || showType === 'animalTypeTime' || showType === 'animalTypeBtnTime' ? '不拉多尔-泡芙' : ''}
                     icon={<Image src={author.avatarUrl} round />}
-                    value={showType === 'LocationTimeBtn' || showType === 'animalTypeBtn' ? <Button round>关注</Button> : showType === 'animalTypeTime' ? <span className='user-tab-time'>{relativeTime}</span> : ''}
+                    value={showType === 'LocationTimeBtn' || showType === 'animalTypeBtn' || showType === 'animalTypeBtnTime' ? <FollowButton/> : showType === 'animalTypeTime' ? <span className='user-tab-time'>{relativeTime}</span> : ''}
                 />
-                <div className={`user-content ${contentClass}`}>
+                <div className={`user-content ${contentClass}`} onClick={() => {
+                        if (dynamicLink) {
+                            navigate(`/about/dynamic/${dynamicId}`);
+                        }
+                    }}>
                     <ImageLayout showType={ImgShowType} imageUrls={mediaList} />
                     <div className='user-content-text'>
                         <Typography.Text>
@@ -104,7 +89,7 @@ const usertab = ({ data = {
                     </div>
                 </div>
                 <div className="user-bar">
-                    <InteractionBar data={{ likeCount, forwardCount, commentCount, likeList }} />
+                    {showType === 'animalTypeBtnTime' ?  <span className='user-tab-time'>{relativeTimeFull}</span> :<InteractionBar data={{ likeCount, forwardCount, commentCount, likeList }} />}
                 </div>
             </div>
         </>

@@ -1,10 +1,10 @@
 import { Outlet, useLocation, useMatch, useNavigate } from "react-router-dom";
-import { ShareSheet } from 'react-vant'
-import { StarO, ShareO } from "@react-vant/icons";
+import { StarO } from "@react-vant/icons";
 import { useBeautyStore } from "@/store/beautyStore";
 import Nav from "@/components/navbar";
 import "@/scss/beauty.scss";
 import { useState, useEffect } from "react";
+import Share from "@/components/share";
 
 const beauty = () => {
     const location = useLocation();
@@ -13,19 +13,11 @@ const beauty = () => {
     const reservationMatch = useMatch("/beauty/reservation/:storeId");
     const storeDetailsMatch = useMatch("/beauty/productDetails/:productId");
     let [iconWhiteCssx, setIconWhiteCssx] = useState(true);
-    const [shareShow, setShareShow] = useState(false)
     const StoreStar = () => {
         console.log("收藏");
     }
-    const StoreShare = () => {
-        setShareShow(true)
-    }
-    const options = [
-        { name: '微信', icon: 'wechat' },
-        { name: '微博', icon: 'weibo' },
-        { name: '复制链接', icon: 'link' },
-    ]
-    const rightActionBtn = (<div className="right-action-btn"><button onClick={StoreStar}><StarO /></button><button onClick={StoreShare}><ShareO /></button></div>)
+    
+    const rightActionBtn = (<div className="right-action-btn"><button onClick={StoreStar}><StarO /></button><Share /></div>)
     useEffect(() => {
         const handleScroll = () => {
             let scrollYInVW = (window.scrollY / window.innerWidth) * 100;
@@ -73,15 +65,6 @@ const beauty = () => {
         rightText = <button className="btn-selectedNurse" disabled={!selectedNurse.name} onClick={() => navigate(-1)}>预约</button>;
     }
 
-    const copyLink = async () => {
-        try {
-            await navigator.clipboard.writeText(window.location.href);
-            console.log('链接已复制到剪贴板');
-        } catch (err) {
-            console.error('复制链接失败:', err);
-        }
-    };
-
     return (
         <div className="beauty">
             <div className={(iconWhiteCss && iconWhiteCssx ? "icon-white" : "") + (backgroundWhite ? " background-white" : "")}>
@@ -90,20 +73,6 @@ const beauty = () => {
             <div>
                 <Outlet />
             </div>
-            <ShareSheet
-                overlay={true}
-                visible={shareShow}
-                options={options}
-                title='分享到'
-                cancelText=''
-                onCancel={() => setShareShow(false)}
-                onSelect={(option, index) => {
-                    copyLink()
-                    console.log('option', option)
-                    console.log('index', index)
-                    setShareShow(false)
-                }}
-            />
         </div>
     );
 };

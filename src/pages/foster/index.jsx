@@ -1,28 +1,18 @@
-import { Outlet, useLocation, useMatch } from "react-router-dom";
-import { ShareSheet } from 'react-vant'
-import { StarO, ShareO } from "@react-vant/icons";
+import { Outlet, useMatch } from "react-router-dom";
+import { StarO } from "@react-vant/icons";
+import Share from "@/components/share";
 import Nav from "@/components/navbar";
 import "@/scss/foster.scss";
 import { useState, useEffect } from "react";
 
 const foster = () => {
-    const location = useLocation();
     const reservationMatch = useMatch("/foster/reservation/:storeId");
     const storeDetailsMatch = useMatch("/foster/storeDetails/:storeId");
     let [iconWhiteCssx, setIconWhiteCssx] = useState(true);
-    const [shareShow, setShareShow] = useState(false)
     const StoreStar = () => {
         console.log("收藏");
     }
-    const StoreShare = () => {
-        setShareShow(true)
-    }
-    const options = [
-        { name: '微信', icon: 'wechat' },
-        { name: '微博', icon: 'weibo' },
-        { name: '复制链接', icon: 'link' },
-    ]
-    const rightActionBtn = (<div className="right-action-btn"><button onClick={StoreStar}><StarO /></button><button onClick={StoreShare}><ShareO /></button></div>)
+    const rightActionBtn = (<div className="right-action-btn"><button onClick={StoreStar}><StarO /></button><Share/></div>)
     useEffect(() => {
         const handleScroll = () => {
             let scrollYInVW = (window.scrollY / window.innerWidth) * 100;
@@ -54,14 +44,6 @@ const foster = () => {
         fiexd = true;
         backgroundWhite = true;
     }
-    const copyLink = async () => {
-        try {
-            await navigator.clipboard.writeText(window.location.href);
-            console.log('链接已复制到剪贴板');
-        } catch (err) {
-            console.error('复制链接失败:', err);
-        }
-    };
 
     return (
         <div className="foster">
@@ -71,20 +53,6 @@ const foster = () => {
             <div>
                 <Outlet />
             </div>
-            <ShareSheet
-                overlay={true}
-                visible={shareShow}
-                options={options}
-                title='分享到'
-                cancelText=''
-                onCancel={() => setShareShow(false)}
-                onSelect={(option, index) => {
-                    copyLink()
-                    console.log('option', option)
-                    console.log('index', index)
-                    setShareShow(false)
-                }}
-            />
         </div>
     );
 };

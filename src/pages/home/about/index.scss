@@ -1,6 +1,7 @@
 .about {
+    padding-top: constant(safe-area-inset-top);
     padding-top: env(safe-area-inset-top);
-
+    
     .rv-search {
         padding: 10px var(--rv-padding-md);
 
@@ -10,6 +11,7 @@
             width: 34px;
             height: 34px;
             margin-left: 5px;
+            font-size: 16px;
 
             .icon {
                 width: 24px;
@@ -98,7 +100,7 @@
             width: 120px;
             height: 160px;
             box-sizing: border-box;
-            border: .5px #E8E8E8 solid;
+            border: 0.5px #e8e8e8 solid;
             padding-top: 15px;
             border-radius: 10px;
             flex-shrink: 0;
@@ -121,12 +123,12 @@
 
                 .about-barContent-item-content-name {
                     font-size: 14px;
-                    color: #08090A;
+                    color: #08090a;
                 }
 
                 .about-barContent-item-content-label {
                     font-size: 11px;
-                    color: #3A3B3C;
+                    color: #3a3b3c;
                     padding-bottom: 8px;
                 }
             }

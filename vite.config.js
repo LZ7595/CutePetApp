@@ -18,8 +18,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': '/src',
-    },
-  },
+        '@': '/src'
+    }
+},
   assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg'],
 });

@@ -1,0 +1,101 @@
+.comment {
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+
+        .comment-avatar-container {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+
+            img.comment-avatar {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+
+            .comment-info{
+                .comment-author{
+                    font-size: 12px;
+                    color: #3A3B3C;
+                    padding-left: 6px;
+                }
+                .comment-time{
+                    font-size: 11px;
+                    color: #999999;
+                }
+            }
+        }
+
+        .comment-actions {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
+            button {
+                width: 15px;
+                height: 15px;
+                border: none;
+                background: none;
+
+                .icon {
+                    width: 15px;
+                    height: 15px;
+
+                    path {
+                        fill: #999999;
+                    }
+                }
+
+
+            }
+
+            .active {
+                .icon {
+                    path {
+                        fill: rgb(203, 34, 34);
+                    }
+                }
+            }
+
+            span {
+                padding: 2px 8px;
+                font-size: 12px;
+                color: #999999;
+            }
+        }
+    }
+    .comment-content{
+        padding:6px 0 6px 38px;
+        font-size: 13px;
+        color: #08090A;
+        
+    }
+    .comment-replies{
+        padding:6px 0 6px 38px;
+
+        .reply{
+            .reply-header{
+                display: flex;
+                gap: 8px;
+                img.reply-avatar{
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 50%;
+                }
+            }
+            span.reply-author,.reply-time{
+                color: #999999;
+                font-size: 11px;
+            }
+            .reply-content{
+                padding-left: 26px;
+                color: #3A3B3C;
+                font-size: 11px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+        }
+    }
+}

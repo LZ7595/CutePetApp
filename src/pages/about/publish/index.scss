@@ -1,0 +1,43 @@
+.publish{
+    .publish-content{
+        textarea.publish-textarea{
+            width: 375px;
+            height: 120px;
+            box-sizing: border-box;
+            padding: 20px 18px;
+            font-size: 16px;
+            border: none;
+        }
+        textarea.publish-textarea::placeholder{
+            color: #999999;
+        }
+        .publish-img{
+            padding-left: 18px;
+            .rv-uploader__upload{
+                border-radius: 10px;
+
+                svg{
+                    path{
+                        fill: #999999;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .publish-btn {
+        position: fixed;
+        bottom: env(safe-area-inset-bottom);
+        width: 375px;
+        height: 60px;
+         
+        button{
+            width: 335px;
+            height: 50px;
+            background-color: #FCCB30;
+            border-radius: 25px;
+            margin: 0 20px 10px;
+        }
+      }
+}

@@ -1,0 +1,151 @@
+.dynamic {
+    .background-white {
+        .rv-nav-bar {
+            background-color: #fff;
+        }
+    }
+
+    .rv-nav-bar {
+
+        .rv-nav-bar__arrow,
+        .rv-nav-bar__right {
+            font-size: 20px;
+        }
+
+        .rv-nav-bar__right {
+            display: flex;
+            align-items: center;
+
+            button {
+                width: 1em;
+                height: 1em;
+            }
+        }
+
+        .rv-nav-bar__title {
+            font-size: 18px;
+        }
+    }
+
+    .user-tab {
+        padding-top: 44px;
+    }
+
+    .dynamic-divider {
+        width: 375px;
+        height: 5px;
+        background: #f7f7f7;
+    }
+
+    .dynamic-content {
+        padding: 20px 0 70px;
+
+        .dynamic-content-title {
+            padding-left: 15px;
+            color: #08090a;
+            font-size: 18px;
+        }
+
+        .dynamic-content-text {
+            padding: 0 15px;
+        }
+    }
+
+    .dynamic-footer {
+        height: 61px;
+        box-sizing: border-box;
+        width: 375px;
+        padding: 12px 15px;
+        background: #fff;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .dynamic-footer-commentInput {
+            padding-left: 5px;
+            width: 200px;
+            height: 37px;
+            background: #f7f7f7;
+            border-radius: 19px;
+            border: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+
+            input {
+                width: 140px;
+                height: 37px;
+                box-sizing: border-box;
+                background: #f7f7f7;
+                border-radius: 19px;
+                padding-left: 15px;
+                border: none;
+                font-size: 14px;
+            }
+
+            input::placeholder {
+                color: #ccc8c8;
+            }
+            .dynamic-footer-commentInput-button{
+                height: 37px;
+                width: 60px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                color: #f5ab00;
+            }
+            .dynamic-footer-commentInput-button:disabled {
+                color: #ccc8c8;
+            }
+
+            button::before {
+                width: 1px;
+                height: 19px;
+                background: #a4a4a4;
+                opacity: .5;
+                content: "";
+                margin-right: 10px;
+                display: inline-block;
+            }
+        }
+        .dynamic-footer-tools{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
+            button {
+                width: 15px;
+                height: 15px;
+                border: none;
+                background: none;
+
+                .icon {
+                    width: 15px;
+                    height: 15px;
+
+                    path {
+                        fill: #999999;
+                    }
+                }
+
+
+            }
+
+            .active {
+                .icon {
+                    path {
+                        fill: rgb(203, 34, 34);
+                    }
+                }
+            }
+
+            span {
+                padding: 2px 8px;
+                font-size: 12px;
+                color: #999999;
+            }
+        }
+    }
+}

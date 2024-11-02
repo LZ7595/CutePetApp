@@ -25,6 +25,9 @@ import HospitalDetail from "@/pages/medical/hospitalDetail";
 import Wiki from "@/pages/wiki";
 import WikiIndex from "@/pages/wiki/wikiIndex";
 import WikiDetails from "@/pages/wiki/wikiDetails";
+import Dynamic from "@/pages/about/dynamic";
+import Search from "@/pages/about/search";
+import Publish from "@/pages/about/publish";
 
 const router = createBrowserRouter([
     {
@@ -153,24 +156,19 @@ const router = createBrowserRouter([
     // 独立的 about 子路由
     {
         path: "about",
-        element: <About />,
         children: [
             {
-                path: "",
-                element: <About/>,
-            },
-            {
-                path: "dynamic",
-                element: <h1>动态</h1>,
-            },
-            {
-                path: "publish",
-                element: <h1>发表</h1>,
+                path: "dynamic/:dynamicId",
+                element: <Dynamic />,
             },
             {
                 path: "search",
-                element: <h1>搜索</h1>,
+                element: <Search />,
             },
+            {
+                path: "publish",
+                element: <Publish />,
+            }
         ],
     },
     // 独立的 mine 子路由

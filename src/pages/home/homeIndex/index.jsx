@@ -40,7 +40,7 @@ const homeIndex = () => {
       </div>
       <div className="everydaySuggestion homeNav">
         <Nav leftText="每日推荐" rightText={<><span className="lookMore">查看更多</span><Arrow /></>} />
-        <UserTab />
+        <UserTab dynamicLink />
       </div>
       <div className="popularPetCaregiver homeNav">
         <Nav leftText="热门宠物护理师" rightText={<><span className="lookMore">查看更多</span><Arrow /></>} />
